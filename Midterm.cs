@@ -11,6 +11,8 @@ namespace Program.File.MyClasses
         {
             static void Main()
             {
+                 List<User> userList = new List<User>();
+                List<Comment> CommentList = new List<Comment>();
 
                 string response = "";
                 while (response != "5")
@@ -41,68 +43,61 @@ namespace Program.File.MyClasses
                             user.UserId = (1);
                             user.UserName = "Blanca";
                             user.UserRole = "Administrator";
-                            user.UserList = "";
+                            user.UserList = "User 1, User 2, User 3, User 4";
 
-                            Console.WriteLine("The user I created is:" +
-                                             user.UserName);
+                            userList.Add(user);
 
+                            Console.WriteLine("I created a user");
                             break;
 
 
 
                         case "2":
                             Comment Comment = new Comment();
-                            Comment.Comments = "myList";
+                            Comment.Comments = "The actual comment is: How are you?";
                             Comment.NumberofComments = "Comment 1, Comment 2, Comment 3, Comment 4";
 
-                            Console.WriteLine("The comment I created is:" +
-                                            Comment.Comments);
+                            CommentList.Add(Comment);
+
+                            Console.WriteLine("I created a comment");
                             break;
 
 
 
                         case "3":
-                            user = new User();
-                            user.UserList = "User 1, User 2, User 3, User 4";
-                            user.UserName = "Blanca";
+                            Console.WriteLine("This is the list of users:");
 
-                            Console.WriteLine("The  new user I created is:" +
-                                            user.UserList);
+
+                            foreach (var User in userList)
+                            {
+                                Console.WriteLine(User.UserId);
+                                Console.WriteLine(User.UserName);
+                                Console.WriteLine(User.UserRole);
+                                Console.WriteLine(User.UserList);
+                            }
+
                             break;
 
 
 
                         case "4":
-                            Comment Comments = new Comment();
-                            Comments.ListofComments = "myList";
-                            Comments.NumberofComments = "Comment 1, Comment 2, Comment 3, Comment 4";
+                            Console.WriteLine("This is the list of Comments:");
 
-                            Console.WriteLine("The new comment I created is:" +
-                                              Comments.NumberofComments);
+
+                            foreach (var Comments in CommentList)
+                            {
+                                Console.WriteLine(Comments.Comments);
+                                Console.WriteLine(Comments.NumberofComments);
+
+                            }
+
                             break;
 
 
-                            List<string> myList = new List<string>();
 
-                            myList.Add("user.UserList, User 1, User 2, User 3, User 4");
-
-                            myList.Add("Comments.NumberofComments, Comment 1, Comment 2, Comment 3, Comment 4 ");
-
-
-                            foreach (var item in myList)
-                            {
-                                Console.WriteLine(item);
-
-                            }
                     }
                 }
             }
         }
     }
 }
-               
-
-                
-
-             
-         
