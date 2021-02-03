@@ -16,84 +16,91 @@ namespace Program.File
             myFirstUser.UserId = 1;
             myFirstUser.UserName = ("abc");
             myFirstUser.UserRole = "write";
+            myList.Add(myFirstUser);
 
             User mySecondUser = new User();
             mySecondUser.UserId = 2;
             mySecondUser.UserName = ("def");
             mySecondUser.UserRole = "Count";
+            myList.Add(mySecondUser);
 
             User myThirdUser = new User();
             myThirdUser.UserId = 3;
             myThirdUser.UserName = ("ghi");
             myThirdUser.UserRole = "Read";
+            myList.Add(myThirdUser);
 
             User myForthUser = new User();
             myForthUser.UserId = 4;
             myForthUser.UserName = ("jkl");
             myForthUser.UserRole = "Talk";
+            myList.Add(myForthUser);
 
             User myFifthUser = new User();
             myFifthUser.UserId = 5;
             myFifthUser.UserName = ("mno");
             myFifthUser.UserRole = "Sum";
+            myList.Add(myFifthUser);
 
             User mySixthUser = new User();
             mySixthUser.UserId = 6;
             mySixthUser.UserName = ("pqr");
             mySixthUser.UserRole = "Subtract";
+            myList.Add(mySixthUser);
 
             User mySeventhUser = new User();
             mySeventhUser.UserId = 7;
             mySeventhUser.UserName = ("stu");
             mySeventhUser.UserRole = "Multipy";
+            myList.Add(mySeventhUser);
 
             User myEighthUser = new User();
             myEighthUser.UserId = 8;
             myEighthUser.UserName = ("wxy");
             myEighthUser.UserRole = "Divide";
+            myList.Add(myEighthUser);
 
             User myNinthUser = new User();
             myNinthUser.UserId = 9;
             myNinthUser.UserName = ("z");
             myNinthUser.UserRole = "Draw";
+            myList.Add(myNinthUser);
+
 
             User myTenthUser = new User();
             myTenthUser.UserId = 10;
             myTenthUser.UserName = ("Aa");
             myTenthUser.UserRole = "Paint";
-
-            myList.Add(myFirstUser);
-            myList.Add(mySecondUser);
-            myList.Add(myThirdUser);
-            myList.Add(myForthUser);
-            myList.Add(myFifthUser);
-            myList.Add(mySixthUser);
-            myList.Add(mySeventhUser);
-            myList.Add(myEighthUser);
-            myList.Add(myNinthUser);
             myList.Add(myTenthUser);
 
-            int result = myList.Select(list => list.UserId).First();
-            Console.WriteLine(result);
-            string result1 = myList.Select(list => list.UserName).First();
-            Console.WriteLine(result1);
-            string result2 = myList.Select(list => list.UserRole).First();
-            Console.WriteLine(result2);
-
-            Console.WriteLine();
-
-            int result4 = myList.Select(list => list.UserId).Last();
-            Console.WriteLine(result4);
-            string result5 = myList.Select(list => list.UserName).Last();
-            Console.WriteLine(result5);
-            string result6 = myList.Select(list => list.UserRole).Last();
-            Console.WriteLine(result6);
+          
 
 
+            List<User> result = myList.Where(User => myFirstUser.UserId == 1).ToList();
+
+            List<User> result1 = myList.Where(User => myFirstUser.UserName == "").ToList();
+
+            List<User> result2 = myList.Where(User => myFirstUser.UserRole  == "").ToList();
+
+
+            foreach (var User in result)
+            {
+                Console.WriteLine(User.UserId);
+                Console.WriteLine(User.UserName);
+                Console.WriteLine(User.UserRole);
+                
+            }
+
+             try
+            {
+                int variable1 = 20;
+                    int variable2 = 0;
+                    int Operation = variable1 / variable2;
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception.Message);
+            }
         }
     }
-}
-
-class User<T> : List<User>
-{
 }
