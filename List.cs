@@ -10,6 +10,8 @@ namespace Program.File
     {
         static void Main()
         {
+               try
+            { 
             List<User> myList = new User<User>();
 
             User myFirstUser = new User();
@@ -73,34 +75,49 @@ namespace Program.File
             myTenthUser.UserRole = "Paint";
             myList.Add(myTenthUser);
 
-          
+
 
 
             List<User> result = myList.Where(User => myFirstUser.UserId == 1).ToList();
 
             List<User> result1 = myList.Where(User => myFirstUser.UserName == "").ToList();
 
-            List<User> result2 = myList.Where(User => myFirstUser.UserRole  == "").ToList();
+            List<User> result2 = myList.Where(User => myFirstUser.UserRole == "").ToList();
 
-
-            foreach (var User in result)
+            if (myList.Count > 0)
             {
-                Console.WriteLine(User.UserId);
-                Console.WriteLine(User.UserName);
-                Console.WriteLine(User.UserRole);
-                
-            }
 
-             try
-            {
-                int variable1 = 20;
-                    int variable2 = 0;
-                    int Operation = variable1 / variable2;
+                Console.WriteLine("Users found");
+                string format = "User has these properties:" +
+                             "UserId: {0}, UserName: {1}, UserRole: {2}";
+
+                foreach (var User in result)
+                {
+                    Console.WriteLine(format, User.UserId, User.UserName, User.UserRole);
+
+                }
             }
-            catch (Exception exception)
+            else
+            {
+                throw new UserNotFound("No user found");
+            }
+        }
+            catch(UserNotFound exception)
             {
                 Console.WriteLine(exception.Message);
             }
+            finally
+            {
+                Console.WriteLine("Program has ended");
+            }
         }
+    }
+}
+
+public class UserNotFound : Exception
+{
+    public UserNotFound(string errorMessage) : base(errorMessage)
+    {
+
     }
 }
