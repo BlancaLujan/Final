@@ -1,30 +1,30 @@
 ﻿using System;
 using Program.File.MyClasses;
 
-
-
 namespace Program.File
 {
     class Programs
     {
         static void Main()
         {
-            UserClass myNewClass = new UserClass();
+            UserClass myVariable = new UserClass();
+            myVariable.PrintSomethingToTheConsole<string>(1, "Blanca");
 
-            myNewClass.PrintSomethingToTheConsole<string, string>(1, "User1" , "Administrator");
-
+            Console.WriteLine(myVariable.UserId);
+            Console.WriteLine(myVariable.UserName);
         }
     }
 }
 public class UserClass
 {
-    public void PrintSomethingToTheConsole<T, Key>(int UserId, Key UserName, T UserRole)
+    public string UserId { get; set; }
+     public string UserName { get; set; }
+    
+
+    public void PrintSomethingToTheConsole<T>(int parameter1, T parameter2)
     {
-        Console.WriteLine("The value of the parameters are the following:");
-        Console.WriteLine(UserId);
-        Console.WriteLine(UserName);
-        Console.WriteLine(UserRole);
-    }
+        this.UserId = parameter1.ToString();
+        this.UserName = parameter2.ToString();
+        
+     }
 }
-
-
