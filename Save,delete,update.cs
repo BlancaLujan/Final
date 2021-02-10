@@ -68,30 +68,8 @@ namespace Program.File
 
 
 
-
-            // repository.GetAllUserNames();
         }
     }
 }
-       // enum UserType
-        //{
-         //   UserId,
-        //    UserName,
-       //     UserRole,
-        //    OtherUser,
-       // }
-      //  static void Main()
-      //  {
-
-       //     UserType type = UserType.OtherUser;
-
-       //     if ((int)type == 3)
-       //     {
-        //        Console.WriteLine("The value is 3");
-        //    }
-        //    else
-        //    {
-           //     Console.WriteLine("the value is not 3");
-           // }
-
+       
 
