@@ -14,12 +14,13 @@ namespace Program
         static void Main()
         {
 
+
             List<User> userList = new List<User>();
             List<Comment> CommentList = new List<Comment>();
-            try
+            
             {
-                List<User> myList = new User<User>();
 
+                List<User> myList = new User<User>();
 
                 string response = "";
                 while (response != "8")
@@ -105,101 +106,63 @@ namespace Program
                             break;
 
                         case "5":
-                            Console.WriteLine("Look for a User");
 
+                            Console.WriteLine("Look for a User:");
+                            User user1 = new User();
+                            user1.UserName = "Blanca";
+
+
+                                userList.Add(user1);
+
+                                Console.WriteLine("Blanca");
+                              
+                            break;
+
+
+
+
+
+                        case "6":
+                            Console.WriteLine("Look for Comment:");
+
+                            Comment Comment1 = new Comment();
+                            Comment1.Comments = "The actual comment is: How are you?";
+                           
+   
+                                CommentList.Add(Comment1);
+
+                                Console.WriteLine(" How are you?");
+                            
+
+                            break;
+                            
+
+                        case "7":
+                            Console.WriteLine("Data file:");
 
                             foreach (var User in userList)
                             {
+                                Console.WriteLine(User.UserId);
                                 Console.WriteLine(User.UserName);
-                                Console.WriteLine();
-                                User myFirstUser = new User();
-                                myFirstUser.UserId = 1;
-                                myFirstUser.UserName = ("abc");
-                                myFirstUser.UserRole = "write";
-                                myList.Add(myFirstUser);
-
-                                User mySecondUser = new User();
-                                mySecondUser.UserId = 2;
-                                mySecondUser.UserName = ("def");
-                                mySecondUser.UserRole = "Count";
-                                myList.Add(mySecondUser);
-
-
-
-                                List<User> result1 = myList.Where(User => myFirstUser.UserName == "").ToList();
-
-
-
-                                if (myList.Count > 0)
-                                {
-
-                                    Console.WriteLine("Users found");
-                                    string format = "User has these properties:" +
-                                                 "UserId: {0}, UserName: {1}, UserRole: {2}";
-
-                                    foreach (var User in result)
-                                    {
-                                        Console.WriteLine(format, User.UserName);
-
-                                    }
-                                }
-                                else
-                                {
-                                    throw new UserNotFound("No user found");
-                                }
+                                Console.WriteLine(User.UserRole);
+                                Console.WriteLine(User.UserList);
                             }
+
+                            foreach (var Comments in CommentList)
+                            {
+                                Console.WriteLine(Comments.Comments);
+                                Console.WriteLine(Comments.NumberofComments);
+
+                            }
+
+                            break;
+
+
+                          
+
+
+
                     }
-                }
-
-            }
-                            catch (UserNotFound exception)
-                            {
-                                Console.WriteLine(exception.Message);
-                            }
-                            finally
-                            {
-                                Console.WriteLine("Program has ended");
-                            }
-                        }
-                }
-    
-
-    public class UserNotFound : Exception
-        {
-            public UserNotFound(string errorMessage) : base(errorMessage)
-            {
-
-
-            }
-        break;
-
-                    case "6":
-                        Console.WriteLine("Look for Comment:");
-
-
-                        foreach (var Comments in CommentList)
-                        {
-                            Console.WriteLine();
-                            Console.WriteLine();
-
-                        }
-
-                        break;
-
-                    case "7":
-                        Console.WriteLine("Data file:");
-
-
-                        foreach (var Comments in CommentList)
-                        {
-                            Console.WriteLine();
-                            Console.WriteLine();
-
-                        }
-
-                        break;
-
-
                 }
             }
         }
